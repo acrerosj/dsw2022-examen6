@@ -9,7 +9,11 @@ use Dsw\Fct\models\Choice;
 class companyController
 {
   public function index() {
-    $companies = Company::all();
+    if (isset($_POST['description'])) {
+      $companies = Company::where('description', 'like', '%'.$_POST['description'].'%')->get();
+    } else {
+      $companies = Company::all();
+    }
     $count_choise = 0;
     if (!$_SESSION['profesor']) {
       foreach($companies as $company) {

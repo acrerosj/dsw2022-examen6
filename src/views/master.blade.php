@@ -26,13 +26,18 @@
             <li class="nav-item">
               <a class="nav-link" aria-current="page" href="/company">Empresas</a>
             </li>
+              @if($_SESSION['profesor'])
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="/choice">Elección de los Alumnos</a>
+              </li>
+              @endif
             @endisset
           </ul>
-          <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Descripción" aria-label="Search">
+          @if (isset($_SESSION['name']))
+          <form class="d-flex" method="POST" action="/company">
+            <input class="form-control me-2" type="search" placeholder="Descripción" aria-label="Search" name="description">
             <button class="btn btn-outline-success" type="submit">Buscar</button>
           </form>
-          @if (isset($_SESSION['name']))
             <span class="mx-2">Hola, {{$_SESSION['name']}}</span>
             <a href="/logout" class="btn btn-warning mx-2">Logout</a>
           @else
