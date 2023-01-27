@@ -15,6 +15,7 @@ class loginController
     if ($user) {
       $_SESSION['id'] = $user->id;
       $_SESSION['name'] = $user->name;
+      $_SESSION['profesor'] = $user->profesor;
       header('Location: /');
     } else {
       header('Location: /login');  

@@ -22,6 +22,11 @@
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="/">Home</a>
             </li>
+            @isset($_SESSION['id'])
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="/company">Empresas</a>
+            </li>
+            @endisset
           </ul>
           <form class="d-flex">
             <input class="form-control me-2" type="search" placeholder="Descripción" aria-label="Search">
